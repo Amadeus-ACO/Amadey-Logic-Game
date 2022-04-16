@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    //id 'application'
+    id 'org.openjfx.javafxplugin'
+}
+
+/*application {
+    mainClass = "Launcher"
+    //applicationDefaultJvmArgs = ['--add-modules=javafx.controls,javafx.fxml,javafx.swing,javafx.web']
+    applicationDefaultJvmArgs = ['--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED',
+                                 '--add-exports=javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED',
+                                 '--add-exports=javafx.controls/com.sun.javafx.scene.control.skin.resources=ALL-UNNAMED'
+    ]
+    /*applicationDefaultJvmArgs = ['--module-path', classpath.asPath,
+                                 '--add-modules', 'javafx.controls',
+                                 '--add-modules', 'javafx.fxml',
+                                 '--add-modules', 'javafx.web',
+                                 '--add-modules', 'javafx.graphics',
+                                 '--add-modules', 'javafx.media'
+    ]
+}*/
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceSets.main.java.srcDir("src/")
+sourceSets.main.resources.srcDir("src/")
+
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web']
+}
+
+/*compileJava {
+    options.compilerArgs = [
+            '--module-path', classpath.asPath,
+            '--add-modules', 'javafx.controls',
+            '--add-modules', 'javafx.fxml',
+            '--add-modules', 'javafx.web',
+            '--add-modules', 'javafx.graphics',
+            '--add-modules', 'javafx.swing'
+    ]
+    //options.compilerArgs.add('--add-modules=javafx.controls,javafx.fxml,javafx.swing,javafx.web')
+    options.compilerArgs.add('--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED')
+    options.compilerArgs.add('--add-exports=javafx.graphics/com.sun.javafx.geom=ALL-UNNAMED')
+    options.compilerArgs.add('--add-exports=javafx.controls/com.sun.javafx.scene.control.skin.resources=ALL-UNNAMED')
+}*/

@@ -105,13 +105,15 @@ public class CircuitSynthesizer {
     
     //Training
 	public void Synthesis(int w, int h) {
-		
+
+		generator.callOnce = true;
+
+		int circCount = random(1,6);
+
 		sharedVars = new ArrayList<>();
-		
+
 		width = w;
 		height = h;
-			
-		int circCount = random(1,6);
 
 		log.append("Circ count ").append(circCount).append(nl);
 
@@ -119,16 +121,16 @@ public class CircuitSynthesizer {
 		//minTrue = random(2,6)/10;
 		//maxTrue = minTrue+0.2f;
 		log.append("Circ count ").append(circCount).append(nl).append("maxT").append(maxTrue).append(nl);
-		
+
 		for(int i = 0; i < circCount; i++) {
-			
+
 			int Basis =  random(0,2);
-			
+
 			int mdnf =  random(0,1);
 			if(mdnf == 0) {
 				MDNF = false;
 			}else {MDNF = true;}
-			
+
 			if(Basis == 0) {
 				basis = "Default";
 				if(MDNF == true) {
@@ -152,7 +154,7 @@ public class CircuitSynthesizer {
 				basis = "Zhegalkin";
 				varCount =  random(2,3);
 			}
-			
+
 			funcCount =  random(1,4);
 			//funcCount = random(1,(int)Math.floor(0.5f*Math.log(circDifficult-0.5f)+2));
 
@@ -168,27 +170,28 @@ public class CircuitSynthesizer {
 						log.append("Include shared vars").append(nl);
 
 						int n = random(0,1);
-						
+
 						if(n==1) {
-							
+
 							int sharedVarsCount = random(1,varCount-1);
-							
+
 							for(int j = 0; j<sharedVarsCount; j++) {
 								add();
 							}
-						
+
 						}
-						
-					} 
-			
-			dashCirc++;		
+
+					}
+
+			dashCirc++;
 			InitializeParametrs();
 			input_freeSpace.y += 100;
 			freeSpace.y = input_freeSpace.y;
-			
-			
+
+
 		}
 		DeleteUnusedInputs();
+		CreateCircuitOutput();
 }
 	
 	//Custom circuit

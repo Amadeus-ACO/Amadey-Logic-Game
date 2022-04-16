@@ -368,7 +368,7 @@ public class CirSim {
 		update = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
-				Score -= penaltyPerFrame;
+				if(gameType.equals("Test"))Score -= penaltyPerFrame;
 				TimeSpend += 0.015;
 				infoMenu.setText(lc.get("Score") + " " + (int)Score);
 				updateCircuit();
@@ -654,6 +654,14 @@ public class CirSim {
 		System.out.println("Exit");
 
 	}
+
+	public void terminateSim(){
+
+		update.stop();
+
+	}
+
+
 
 	/**
 	 * Solve circuit
