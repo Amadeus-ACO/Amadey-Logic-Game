@@ -173,7 +173,7 @@ public class CircuitSynthesizer {
 
 						if(n==1) {
 
-							int sharedVarsCount = random(1,varCount-1);
+							int sharedVarsCount = random(1, varCount-2);
 
 							for(int j = 0; j<sharedVarsCount; j++) {
 								add();
@@ -366,7 +366,7 @@ public class CircuitSynthesizer {
 	//Инициализация всех объектов и применение файла конфигурации
 	private void InitializeParametrs() {
         
-        generator.GenerateVectorFunction(varCount, funcCount, sharedVars, minTrue,maxTrue);
+        generator.GenerateVectorFunction(varCount, funcCount, sharedVars, minTrue, maxTrue);
 
         log.append(generator.getLog());
         

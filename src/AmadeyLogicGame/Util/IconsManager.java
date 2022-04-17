@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 public class IconsManager {
 
     public static final Image AmadayLogicGame = new Image("AmadeyLogicGame/resources/images/logo.png");
+    public static final ImageView AmadayLogicGame_imgvw = new ImageView("AmadeyLogicGame/resources/images/logo.png");
 
     private static final String path = "AmadeyLogicGame/resources/images";
 

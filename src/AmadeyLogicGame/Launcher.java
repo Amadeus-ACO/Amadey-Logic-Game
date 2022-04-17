@@ -1,3 +1,5 @@
+package AmadeyLogicGame;
+
 import AmadeyLogicGame.Main;
 
 public class Launcher {
